@@ -47,7 +47,7 @@
    * shadow
    */
 
-    --shadow: 0 2px 2px hsla(0, 0%, 22%, 0.08);
+    --shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 
     /**
    * border radius
@@ -77,7 +77,7 @@ html {
 body {
     font-size: 1.6rem;
     line-height: 1.5;
-    overflow: hidden;
+    overflow: auto;
     height: 100vh;
 }
 

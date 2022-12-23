@@ -1,28 +1,5 @@
-#cars {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-#cars td,
-#cars th {
-    border: 1px solid #ddd;
-    padding: 8px;
-}
-
-#cars tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-#cars tr:hover {
-    background-color: #ddd;
-}
-
-#cars th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #3f4443;
-    color: white;
+section {
+    margin: 1rem;
 }
 
 input[type="text"],
@@ -31,7 +8,7 @@ select {
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
-    border: 1px solid #ccc;
+    border: 1px solid var(--white_a75);
     border-radius: 4px;
     box-sizing: border-box;
 }
@@ -52,4 +29,10 @@ select {
     transition: 0.3s;
     width: 50%;
     margin: 1rem auto;
+}
+
+.text-danger {
+    color: red;
+    font-size: var(--fs-12);
+    margin-left: 1rem;
 }

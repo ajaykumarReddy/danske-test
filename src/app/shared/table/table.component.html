@@ -1,0 +1,15 @@
+<table id="table">
+  <tr>
+    <th *ngFor="let col of cols">{{col.displayName}}</th>
+    <th *ngIf="isActions">Actions</th>
+  </tr>
+  <tr *ngFor="let car of data">
+    <td *ngFor="let col of cols">{{car[col.property]}}</td>
+    <td>
+      <div class="actions" *ngIf="isActions">
+        <button class="btn btn-red" (click)="delete.next(car)">Delete</button> &nbsp;
+        <button class="btn" (click)="edit.next(car)">Edit</button>
+      </div>
+    </td>
+  </tr>
+</table>

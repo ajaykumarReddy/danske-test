@@ -1,46 +1,46 @@
 <section>
 
-  <table id="cars">
-    <tr>
-      <th>Id</th>
-      <th>Owner Name</th>
-      <th>Car Number</th>
-      <th>Car Model</th>
-      <th>Actions</th>
-    </tr>
-    <tr *ngFor="let car of cars$ |async ; else loadingTemp">
-      <td>{{car.id}}</td>
-      <td>{{car.owner_name}}</td>
-      <td>{{car.car_number}}</td>
-      <td>{{car.model}}</td>
-      <td>
-        <div class="actions">
-          <button class="btn btn-red" (click)="deleteCar(car)">Delete</button> &nbsp;
-          <button class="btn" (click)="editedCarItem(car)">Edit</button>
-        </div>
-      </td>
-    </tr>
-
-  </table>
+  <app-table [data]="cars$ | async" [cols]="cols" [isActions]="true" (delete)="deleteCar($event)"
+    (edit)="editedCarItem($event)"></app-table>
 
   <div class="add_car card">
-    <h1>{{action === 'add'? 'Add': 'Edit'}} Car</h1>
+    <h1>{{action === 'add'? 'Add': 'Update'}} Car</h1>
     <form [formGroup]="addCarForm" (ngSubmit)="addUpdatecar()">
-      <label for="carNumber">Car Number</label>
-      <input type="text" formControlName="car_number" id="carNumber" name="car_number" placeholder="Car Number..">
+      <div>
+        <label for="carNumber">Car Number</label>
+        <input type="text" formControlName="car_number" id="carNumber" name="car_number"
+          placeholder="Car Number AP-05-BJ-9353..">
+        <div class="text-danger" *ngIf="f['car_number'].errors && (f['car_number'].touched || f['car_number'].dirty)">
+          <div *ngIf="f['car_number'].errors['required']">Car Number is required</div>
+          <div *ngIf="f['car_number'].errors['pattern']">Car Number is not matched with pattern</div>
+          <div *ngIf="f['car_number'].errors['carNumberNotAvailable']">This is existed car number</div>
+        </div>
+      </div>
 
-      <label for="name">Owner Name</label>
-      <input type="text" formControlName="owner_name" id="name" name="owner_name" placeholder="Your name..">
+      <div>
+        <label for="name">Owner Name</label>
+        <input type="text" formControlName="owner_name" id="name" name="owner_name" placeholder="Your name..">
+        <div class="text-danger" *ngIf="f['owner_name'].errors && (f['owner_name'].touched || f['owner_name'].dirty)">
+          <div *ngIf="f['owner_name'].errors['required']">Car Owner Name is required</div>
+        </div>
+      </div>
 
-      <label for="model">Model</label>
-      <select id="model" name="model" formControlName="model">
-        <option value="maruti">Maruti</option>
-        <option value="tata">Tata</option>
-        <option value="jeep">Jeep</option>
-        <option value="kia">Kia</option>
-        <option value="mahindra">Mahindra</option>
-        <option value="hyndai">Hyndai</option>
-      </select>
+      <div>
+        <label for="model">Model</label>
+        <select id="model" name="model" formControlName="model">
+          <option value="">Select Car Model</option>
+          <option value="maruti">Maruti</option>
+          <option value="tata">Tata</option>
+          <option value="jeep">Jeep</option>
+          <option value="kia">Kia</option>
+          <option value="mahindra">Mahindra</option>
+          <option value="hyndai">Hyndai</option>
+        </select>
+        <div class="text-danger" *ngIf="f['model'].errors && (f['model'].touched || f['model'].dirty)">
+          <div *ngIf="f['model'].errors['required']">Car Model is required</div>
+        </div>
+      </div>
+
       <div class="actions-btn">
         <button class="btn" type="submit"> {{action | uppercase}}</button>
         <button class="btn" type="button" (click)="action =='add'; addCarForm.reset()">Cancel</button>
