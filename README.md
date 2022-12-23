@@ -5,9 +5,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Run the Json-Server for back-end server
 
-Run `ng start:server` for a back-end server. Navigate to `http://localhost:3000/`..
+Run `npm run start:server` to start the back-end server. Navigate to `http://localhost:3000/`..
 
-## Development server
+## Development server for front-end app
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
