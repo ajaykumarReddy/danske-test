@@ -1,1 +1,111 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+    /**
+   * colors
+   */
+    --maximum-yellow-red_a10: hsla(41, 99%, 64%, 0.1);
+    --eerie-black: hsl(210, 11%, 15%);
+    --blue-1: hsl(223, 100%, 55%);
+    --blue-2: hsl(223, 100%, 40%);
+    --davys-gray: hsl(0, 0%, 33%);
+    --white_a80: hsla(0, 0%, 100%, 0.8);
+    --white_a75: hsla(0, 0%, 100%, 0.75);
+    --white_a10: hsla(0, 0%, 100%, 0.1);
+    --jet_a10: hsla(0, 0%, 22%, 0.1);
+    --black: hsl(0, 0%, 0%);
+    --white: hsl(0, 0%, 100%);
+    --jet: hsl(0, 0%, 22%);
+    --red: hsl(0, 77%, 44%);
+
+    /**
+   * typography
+   */
+    --ff-roboto: "Roboto", sans-serif;
+    --fs-45: 4.5rem;
+    --fs-38: 3.8rem;
+    --fs-32: 3.2rem;
+    --fs-27: 2.7rem;
+    --fs-26: 2.6rem;
+    --fs-22: 2.2rem;
+    --fs-20: 2rem;
+    --fs-18: 1.8rem;
+    --fs-17: 1.7rem;
+    --fs-14: 1.4rem;
+    --fs-12: 1.2rem;
+
+    --fw-300: 300;
+    --fw-500: 500;
+    --fw-700: 700;
+
+    /**
+   * spacing
+   */
+
+    --app-padding: 10px;
+
+    /**
+   * shadow
+   */
+
+    --shadow: 0 2px 2px hsla(0, 0%, 22%, 0.08);
+
+    /**
+   * border radius
+   */
+
+    --radius-50: 50px;
+}
+
+/*-----------------------------------*\
+  #RESET
+\*-----------------------------------*/
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: var(--ff-roboto);
+    font-size: 10px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-size: 1.6rem;
+    line-height: 1.5;
+    overflow: hidden;
+    height: 100vh;
+}
+
+body.loaded {
+    overflow: visible;
+}
+
+:focus-visible {
+    outline-offset: 4px;
+}
+
+.btn {
+    padding: 6px 15px;
+    margin: 4px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-red {
+    background-color: var(--red);
+    color: var(--white_a80);
+}
+button[type="submit"] {
+    background-color: var(--blue-1);
+    color: var(--white_a80);
+}
+
+button[type="submit"]:hover {
+    background-color: var(--blue-2);
+}

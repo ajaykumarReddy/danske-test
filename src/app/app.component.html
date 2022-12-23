@@ -15,14 +15,16 @@
       <td>{{car.model}}</td>
       <td>
         <div class="actions">
-          <button (click)="deleteCar(car)">Delete</button> &nbsp;
-          <button (click)="editedCarItem(car)">Edit</button>
+          <button class="btn btn-red" (click)="deleteCar(car)">Delete</button> &nbsp;
+          <button class="btn" (click)="editedCarItem(car)">Edit</button>
         </div>
       </td>
     </tr>
+
   </table>
 
-  <div class="add_car">
+  <div class="add_car card">
+    <h1>{{action === 'add'? 'Add': 'Edit'}} Car</h1>
     <form [formGroup]="addCarForm" (ngSubmit)="addUpdatecar()">
       <label for="carNumber">Car Number</label>
       <input type="text" formControlName="car_number" id="carNumber" name="car_number" placeholder="Car Number..">
@@ -39,11 +41,13 @@
         <option value="mahindra">Mahindra</option>
         <option value="hyndai">Hyndai</option>
       </select>
-
-      <input type="submit" value="{{action | uppercase}}">
+      <div class="actions-btn">
+        <button class="btn" type="submit"> {{action | uppercase}}</button>
+        <button class="btn" type="button" (click)="action =='add'; addCarForm.reset()">Cancel</button>
+      </div>
     </form>
-  </div>
 
+  </div>
 </section>
 
 
