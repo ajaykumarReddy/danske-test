@@ -1,0 +1,16 @@
+{
+  "cars": [
+    {
+      "id": 1,
+      "model": "tata",
+      "owner_name": "person1",
+      "car_number": "7879-4545"
+    },
+    {
+      "car_number": "45435-4545",
+      "model": "jeep",
+      "owner_name": "person2",
+      "id": 2
+    }
+  ]
+}
