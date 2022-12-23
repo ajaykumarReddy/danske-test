@@ -4,6 +4,7 @@ import { CarService } from './cars.service';
 import { BehaviorSubject, Subject, takeUntil } from 'rxjs';
 import { Car } from './types';
 import { FormBuilder, Validators, AbstractControl } from '@angular/forms';
+import { CAR_COLS, CAR_NUMBER_PATTERN } from './shared/common';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,10 +14,7 @@ export class AppComponent {
   action: 'add' | 'update' = 'add';
   cars$ = new BehaviorSubject<Car[]>([]);
 
-  cols = [{ displayName: 'Id', property: 'id' },
-  { displayName: 'Owner Name', property: 'owner_name' },
-  { displayName: 'Car Number', property: 'car_number' },
-  { displayName: 'Car Model', property: 'model' }];
+  cols = CAR_COLS;
 
   private destroy$ = new Subject();
 
@@ -30,7 +28,7 @@ export class AppComponent {
 
   addCarForm = inject(FormBuilder).nonNullable.group({
     car_number: ['', [Validators.required,
-    Validators.pattern('^[A-Z]{2}[-][0-9]{1,2}[-][A-Z]{1,2}[-][0-9]{3,4}$'),
+    Validators.pattern(CAR_NUMBER_PATTERN),
     ], this.carNumnerValidator.bind(this)],
     model: ['', Validators.required],
     owner_name: ['', Validators.required],

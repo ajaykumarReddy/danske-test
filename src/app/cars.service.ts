@@ -1,8 +1,7 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { Observable, throwError, BehaviorSubject } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { Car } from './types';
 
 // const httpOptions = {
@@ -34,11 +33,5 @@ export class CarService {
   deleteCar(car: Car): Observable<void> {
     return this.httpClient.delete<void>(`${this.API}/cars/${car.id}`);
   }
-
-  private handleError(error: any) {
-    console.log(error);
-    return throwError(error);
-  }
-
 
 }
