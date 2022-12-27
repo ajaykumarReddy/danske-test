@@ -1,6 +1,6 @@
-<section>
+<section *ngIf="vm$ | async as vm">
 
-  <app-table [data]="cars$ | async" [cols]="cols" [isActions]="true" (delete)="deleteCar($event)"
+  <app-table [data]="vm.cars" [cols]="cols" [isActions]="true" (delete)="delete($event)"
     (edit)="editedCarItem($event)"></app-table>
 
   <div class="add_car card">
@@ -48,9 +48,7 @@
     </form>
 
   </div>
+  <div *ngIf="vm.loading">
+    Loading...
+  </div>
 </section>
-
-
-<ng-template #loadingTemp>
-  Loading...
-</ng-template>

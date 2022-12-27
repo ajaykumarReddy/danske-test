@@ -8,7 +8,7 @@
     },
     {
       "car_number": "TS-33-TF-335",
-      "model": "mahindra",
+      "model": "tata",
       "owner_name": "person2",
       "id": 2
     },
@@ -17,6 +17,12 @@
       "model": "jeep",
       "owner_name": "person4",
       "id": 4
+    },
+    {
+      "car_number": "RF-44-TG-444",
+      "model": "jeep",
+      "owner_name": "person5",
+      "id": 6
     }
   ]
 }
